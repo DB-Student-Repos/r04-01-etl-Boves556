@@ -1,5 +1,15 @@
-use std::collections::BTreeMap;
+use std::collections::BTreeMap; 
 
 pub fn transform(h: &BTreeMap<i32, Vec<char>>) -> BTreeMap<char, i32> {
-    unimplemented!("How will you transform the tree {h:?}?")
+    let mut result = BTreeMap::new();
+
+    for (&score, letters) in h.iter() {
+
+        for &letter in letters {
+
+            result.insert(letter.to_ascii_lowercase(), score);
+        }
+    }
+
+    result 
 }
